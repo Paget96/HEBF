@@ -11,14 +11,11 @@
 #  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #=======================================================================#
 
-mount -o rw,remount /data
-mount -o remount,rw /
-mount -o remount,rw rootfs
 mount -o remount,rw /system
 
 HEBF=/system/etc/HEBF/cleaner.log
 
-rm -f $HEBF
+rm -rf $HEBF
 busybox touch $HEBF
 
 echo "#Thumbs" | busybox tee -a $HEBF
@@ -35,5 +32,4 @@ echo "Cleaning..." | busybox tee -a $HEBF
 echo "" | busybox tee -a $HEBF
 echo "Thumbs cleaned" | busybox tee -a $HEBF
 
-mount -o ro,remount /data
 mount -o ro,remount /system
