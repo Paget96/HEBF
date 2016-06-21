@@ -12,15 +12,11 @@
 #  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #=======================================================================#
 
-mount -o remount,rw /
-mount -o remount,rw rootfs
-mount -o remount,rw /system
-mount -o remount,rw /data
-mount -o remount,rw /cache
+mount -o rw,remount /system
 
 HEBF=/system/etc/HEBF/cleaner.log
 
- rm -f $HEBF
+ rm -rf $HEBF
  busybox touch $HEBF
 
  echo "#Junk Files" | busybox tee -a $HEBF
@@ -53,5 +49,3 @@ HEBF=/system/etc/HEBF/cleaner.log
  echo "Cleaned" | busybox tee -a $HEBF
 
 mount -o ro,remount /system
-mount -o ro,remount /data
-mount -o ro,remount /cache
