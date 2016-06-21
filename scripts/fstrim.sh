@@ -11,14 +11,7 @@
 #  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #=======================================================================#
 
-mount -o rw,remount /data
-mount -o rw,remount /system
-mount -o rw,remount /cache
-
 fstrim -v /cache
 fstrim -v /system
 fstrim -v /data
 
-mount -o ro,remount /data
-mount -o ro,remount /system
-mount -o ro,remount /cache
