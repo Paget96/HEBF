@@ -11,12 +11,8 @@
 #  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #=======================================================================#
 
-mount -o remount,rw /
-mount -o remount,rw rootfs
-mount -o remount,rw /system
-
 HEBF=/system/etc/HEBF/kill_media.log
- rm -f $HEBF
+ rm -rf $HEBF
  touch $HEBF
 
  echo "# HEBF_Media" | busybox tee -a $HEBF
