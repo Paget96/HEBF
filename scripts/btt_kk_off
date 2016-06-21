@@ -11,8 +11,6 @@
 #  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #=======================================================================#
 
-mount -o remount,rw /
-mount -o remount,rw rootfs
 mount -o remount,rw /system
 
 busybox sed -i '/#Bateria_KK/d' /system/build.prop
@@ -84,6 +82,4 @@ busybox sed -i '/debug.qc.hardware=true/d' /system/build.prop
 busybox sed -i '/debug.qctwa.preservebuf=1/d' /system/build.prop
 busybox sed -i '/debug.qctwa.statusbar=1/d' /system/build.prop
 
-mount -o remount,ro /
-mount -o remount,ro rootfs
 mount -o remount,ro /system
