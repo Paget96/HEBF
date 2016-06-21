@@ -12,14 +12,10 @@
 #=======================================================================#
 
 NIVEL=$(cat /sys/class/power_supply/battery/capacity)
-mount -o rw,remount /data
 
 	if [ "$NIVEL" == "100" ] ; then
-		 mount -o rw,remount /data
-		 rm -f /data/system/batterystats.bin
-		 mount -o ro,remount /data
+		 rm -rf /data/system/batterystats.bin
 	else
 		 echo "Your battery is not fully charged!"
 	fi
 fi
-mount -o ro,remount /data
